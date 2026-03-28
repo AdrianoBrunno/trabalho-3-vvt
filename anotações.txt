@@ -1,2 +1,0 @@
-Código pyteste: python -m pytest test_gerador_codigo.py -v
-Github: https://github.com/AdrianoBrunno/trabalho-3-vvt.git
