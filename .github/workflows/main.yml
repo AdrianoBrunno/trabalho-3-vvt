@@ -48,3 +48,18 @@ jobs:
 
     - name: Executar App Python para Geração de Código
       run: python app.py
+
+  - name: Aprovisionar Base de Dados e Tabela (Executar schema.sql)
+      run: mysql -h 127.0.0.1 -u root -proot db_produtos < schema.sql
+
+    - name: Executar Testes Automatizados (Pytest)
+      run: pytest test_gerador_codigo.py -v
+
+    - name: Mostrar Tabela ANTES da Inserção (Estado Inicial)
+      run: mysql -h 127.0.0.1 -u root -proot -e "SELECT * FROM db_produtos.codigos_sequenciais;"
+
+    - name: Executar App Python (Validação Real)
+      run: python app.py
+
+    - name: Mostrar Tabela DEPOIS da Inserção (A Prova)
+      run: mysql -h 127.0.0.1 -u root -proot -e "SELECT * FROM db_produtos.codigos_sequenciais;"
