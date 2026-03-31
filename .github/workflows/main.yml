@@ -52,5 +52,5 @@ jobs:
     - name: Executar App Python (Validação Real)
       run: python app.py
 
-    - name: Mostrar Tabela DEPOIS da Inserção (A Prova)
+    - name: Mostrar Tabela DEPOIS da Inserção
       run: mysql -h 127.0.0.1 -u root -proot -e "SELECT * FROM db_produtos.codigos_sequenciais;"
